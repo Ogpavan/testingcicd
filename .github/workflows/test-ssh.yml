@@ -1,0 +1,19 @@
+name: 🔧 Test SSH Connection to VPS
+
+on:
+  workflow_dispatch
+
+jobs:
+  test-ssh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔐 Write private key
+        run: |
+          echo "${{ secrets.VPS_PRIVATE_KEY }}" > key.pem
+          chmod 600 key.pem
+
+      - name: 🧪 Test SSH connection
+        run: |
+          echo "Trying SSH connection to ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}"
+          ssh -vvv -i key.pem -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo ✅ SSH connected"
