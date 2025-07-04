@@ -1,0 +1,15 @@
+name: Debug SSH Secrets
+
+on:
+  workflow_dispatch
+
+jobs:
+  debug-ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔐 Debug Secret Values (⚠️ Remove after testing!)
+        run: |
+          echo "HOST: ${{ secrets.VPS_HOST }}"
+          echo "USERNAME: ${{ secrets.VPS_USER }}"
+          echo "PRIVATE KEY (first 3 lines):"
+          echo "${{ secrets.VPS_PRIVATE_KEY }}" | head -n 3
