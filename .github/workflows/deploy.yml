@@ -19,7 +19,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_PRIVATE_KEY }}
-          port: 222
+          port: 22
           script: |
             echo "✅ Connected to server"
             bash ~/deploy-react.sh
