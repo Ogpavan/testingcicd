@@ -17,12 +17,8 @@ function App() {
         </a>
       </div>
      
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
        
-      </div>
+    
       <p className="read-the-docs">
         cicd successful
       </p>
